@@ -5,5 +5,5 @@
 
 quick and dirty feedburner using MWFeedburner
 
-![women](images/womenHollywoodIndiewire.png)
+![women](images/screenshot2.png)
 
