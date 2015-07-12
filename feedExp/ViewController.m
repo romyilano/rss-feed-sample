@@ -166,18 +166,15 @@ static NSString *CellIdentifier = @"Cell";
     MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
     
     if (item) {
-        
         // Process
         NSString *itemTitle = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
         NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
-        
-        // Set
-        cell.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+       
         cell.titleLabel.text = itemTitle;
-        NSMutableString *subtitle = [NSMutableString string];
-        if (item.date) [subtitle appendFormat:@"%@: ", [self.formatter stringFromDate:item.date]];
-        [subtitle appendString:itemSummary];
-        cell.detailsLabel.text = [NSString stringWithFormat:@"%@\n%@", itemTitle, subtitle];
+        if (item.date) {
+            itemSummary = [NSString stringWithFormat:@"%@, %@", itemSummary, [self.formatter stringFromDate:item.date]];
+        }
+        cell.detailsLabel.text = itemSummary;
         
     }
     return cell;

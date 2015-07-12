@@ -14,6 +14,8 @@
     // Initialization code
     
     self.titleLabel.numberOfLines = 0;
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+    self.detailsLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
     self.detailsLabel.numberOfLines = 0;
 }
 
