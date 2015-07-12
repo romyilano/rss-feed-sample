@@ -19,6 +19,10 @@
 		EC40EBFB1B52F3BA00F30E22 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40EBF81B52F3BA00F30E22 /* NSString+HTML.m */; };
 		EC40EBFC1B52F3BA00F30E22 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40EBFA1B52F3BA00F30E22 /* NSDate+InternetDateTime.m */; };
 		EC40EBFF1B52F73900F30E22 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40EBFE1B52F73900F30E22 /* DetailTableViewController.m */; };
+		EC40EC031B52FBBB00F30E22 /* NibTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40EC011B52FBBB00F30E22 /* NibTableViewCell.m */; };
+		EC40EC041B52FBBB00F30E22 /* NibTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC40EC021B52FBBB00F30E22 /* NibTableViewCell.xib */; };
+		EC40EC071B52FC9400F30E22 /* director100px.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC40EC051B52FC9400F30E22 /* director100px.jpg */; };
+		EC40EC081B52FC9400F30E22 /* director200px.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC40EC061B52FC9400F30E22 /* director200px.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,11 @@
 		EC40EBFA1B52F3BA00F30E22 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		EC40EBFD1B52F73900F30E22 /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		EC40EBFE1B52F73900F30E22 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		EC40EC001B52FBBB00F30E22 /* NibTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibTableViewCell.h; sourceTree = "<group>"; };
+		EC40EC011B52FBBB00F30E22 /* NibTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibTableViewCell.m; sourceTree = "<group>"; };
+		EC40EC021B52FBBB00F30E22 /* NibTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibTableViewCell.xib; sourceTree = "<group>"; };
+		EC40EC051B52FC9400F30E22 /* director100px.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = director100px.jpg; path = ../images/director100px.jpg; sourceTree = "<group>"; };
+		EC40EC061B52FC9400F30E22 /* director200px.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = director200px.jpg; path = ../images/director200px.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +153,11 @@
 				EC40EBF81B52F3BA00F30E22 /* NSString+HTML.m */,
 				EC40EBF91B52F3BA00F30E22 /* NSDate+InternetDateTime.h */,
 				EC40EBFA1B52F3BA00F30E22 /* NSDate+InternetDateTime.m */,
+				EC40EC051B52FC9400F30E22 /* director100px.jpg */,
+				EC40EC061B52FC9400F30E22 /* director200px.jpg */,
+				EC40EC001B52FBBB00F30E22 /* NibTableViewCell.h */,
+				EC40EC011B52FBBB00F30E22 /* NibTableViewCell.m */,
+				EC40EC021B52FBBB00F30E22 /* NibTableViewCell.xib */,
 				EC40EBCD1B52F0DD00F30E22 /* Main.storyboard */,
 				EC40EBD01B52F0DD00F30E22 /* Assets.xcassets */,
 				EC40EBD21B52F0DD00F30E22 /* LaunchScreen.storyboard */,
@@ -285,7 +299,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC40EC081B52FC9400F30E22 /* director200px.jpg in Resources */,
 				EC40EBD41B52F0DD00F30E22 /* LaunchScreen.storyboard in Resources */,
+				EC40EC071B52FC9400F30E22 /* director100px.jpg in Resources */,
+				EC40EC041B52FBBB00F30E22 /* NibTableViewCell.xib in Resources */,
 				EC40EBD11B52F0DD00F30E22 /* Assets.xcassets in Resources */,
 				EC40EBCF1B52F0DD00F30E22 /* Main.storyboard in Resources */,
 			);
@@ -346,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC40EBFF1B52F73900F30E22 /* DetailTableViewController.m in Sources */,
+				EC40EC031B52FBBB00F30E22 /* NibTableViewCell.m in Sources */,
 				EC40EBCC1B52F0DD00F30E22 /* ViewController.m in Sources */,
 				EC40EBC91B52F0DD00F30E22 /* AppDelegate.m in Sources */,
 				EC40EBFB1B52F3BA00F30E22 /* NSString+HTML.m in Sources */,

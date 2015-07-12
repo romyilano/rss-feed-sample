@@ -30,8 +30,10 @@
 #import "ViewController.h"
 #import "NSString+HTML.h"
 #import "MWFeedParser.h"
+#import "NibTableViewCell.h"
 #import "DetailTableViewController.h"
 
+static NSString *CellIdentifier = @"Cell";
 @implementation ViewController
 
 @synthesize itemsToDisplay;
@@ -46,7 +48,14 @@
     
     // Setup
     self.title = @"Loading...";
+    
+    
     self.formatter = [[NSDateFormatter alloc] init];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"NibTableViewCell"
+                                               bundle:nil]
+         forCellReuseIdentifier:CellIdentifier];
+    
     [self.formatter setDateStyle:NSDateFormatterShortStyle];
     [self.formatter setTimeStyle:NSDateFormatterShortStyle];
     self.parsedItems = [[NSMutableArray alloc] init];
@@ -63,6 +72,8 @@
     self.feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
     self.feedParser.connectionType = ConnectionTypeAsynchronously;
     [self.feedParser parse];
+    
+    
     
 }
 
@@ -119,12 +130,13 @@
         self.title = @"Failed"; // Show failed message in title
     } else {
         // Failed but some items parsed, so show and inform of error
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing Incomplete"
-                                                        message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Dismiss"
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Parsing Incomplete"
+                                                                       message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     [self updateTableWithParsedItems];
 }
@@ -146,16 +158,13 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    NibTableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // Configure the cell.
     MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+    
     if (item) {
         
         // Process
@@ -163,15 +172,19 @@
         NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
         
         // Set
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
-        cell.textLabel.text = itemTitle;
+        cell.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        cell.titleLabel.text = itemTitle;
         NSMutableString *subtitle = [NSMutableString string];
         if (item.date) [subtitle appendFormat:@"%@: ", [self.formatter stringFromDate:item.date]];
         [subtitle appendString:itemSummary];
-        cell.detailTextLabel.text = subtitle;
+        cell.detailsLabel.text = [NSString stringWithFormat:@"%@\n%@", itemTitle, subtitle];
         
     }
     return cell;
+}
+
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return [NibTableViewCell nibCellHeight];
 }
 
 #pragma mark -
