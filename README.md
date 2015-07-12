@@ -1,3 +1,9 @@
 # Quick and Dirty MWFeedBurner
-https://github.com/mwaterfall/MWFeedParser
+
+
+* From [MWFeedParser](https://github.com/mwaterfall/MWFeedParser)
+
 quick and dirty feedburner using MWFeedburner
+
+![women](images/womenHollywoodIndiewire.png)
+
